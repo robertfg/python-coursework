@@ -1,4 +1,14 @@
 import random
+# RFG: import logging to record logs
+import logging
+
+
+# RFG: logging messages
+logging.basicConfig(filename='game.log', level=logging.DEBUG)
+
+logging.info("You won't see this.")
+# DEPRECATED: logging.warn("Oh no!")
+logging.warning("Oh no!")
 
 player = {'location': None, 'path': []}
 cells = [(0, 0), (0, 1), (0, 2),
@@ -64,6 +74,8 @@ def draw_map():
 
 
 monster, door, player['location'] = get_locations()
+
+logging.info("monster: {}, door: {}, player: {}".format(monster, door, player['location']))
 
 while True:
     moves = get_moves(player['location'])
