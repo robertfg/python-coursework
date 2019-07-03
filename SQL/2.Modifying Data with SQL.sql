@@ -23,4 +23,12 @@ UPDATE games SET platform = "Cross-Plaform" WHERE id IN (1,4);
 UPDATE cars SET model = "Ford" WHERE id = 1; 
 
 
+/*  ***** Deleting Data from a Database  ***** */
+
+/*  Removing Specific Rows  */
+
+-- Code Challenge
+delete from products where price >= 11;
+delete from users where username = 'poley_hands';
+delete from phone_book where first_name='Jonathan' and last_name='Luna';
 
