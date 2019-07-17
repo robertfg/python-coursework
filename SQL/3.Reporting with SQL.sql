@@ -52,4 +52,53 @@ select substr(first_name, 1, 1) as initial, last_name from customers
 select replace(email, '@', '<at>') as obfuscated_email from customers
 
 
+/*  ***** Aggregate and Numeric Functions  ***** */
+
+/*  Counting Results  */
+
+-- Code Challenge
+select count(*) as scifi_book_count from books where genre='Science Fiction'
+select count(*) as jk_book_count from books where author='J.K. Rowling'
+
+/*  Counting Groups of Rows  */
+
+-- Code Challenge
+select genre, count(*) as genre_count from books group by genre
+select count(distinct genre) as total_genres from books
+
+/*  Getting the Grand Total  */
+
+-- Code Challenge
+select sum(rating) as starman_total_ratings from reviews where movie_id = 6
+
+/*  Calculating Averages  */
+
+-- Code Challenge
+select avg(rating) as average_rating from reviews where movie_id=6
+
+/*  Getting Minimum and Maximum Values  */
+
+-- Code Challenge
+select min(rating) as star_min, max(rating) as star_max from reviews where movie_id=6
+
+/*  Performing Math on Numeric Types  */
+
+-- Code Challenge
+select name, round(price/1.4, 2) as price_gbp from products
+
+/*  Creating Up-to-the-Minute Reports */
+
+-- Code Challenge
+select count(*) as shipped_today from orders where status = 'shipped' and ordered_on = DATE("now")
+
+/*  Calculating Dates */
+
+-- Code Challenge
+select count(*) as ordered_yesterday_and_shipped from orders where status = 'shipped' and ordered_on = date("now", "-1 day")
+
+/*  Formatting Dates for Reporting  */
+
+-- Code Challenge
+select title, strftime("%m/%Y", date_released) as month_year_released from movies
+
 
